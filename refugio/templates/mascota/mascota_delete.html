@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<form method="POST">
+	<!--EL TOKEN CSRF DEBE INCLUIRSE EN TODOS LOS FORMULARIOS, PARA QUE NO NOS MARQUE UN ERROR -->
+	{% csrf_token %}
+	<h3>¿Desea eliminar el registro de {{ object.nombre }} ?</h3>
+	<button class="btn btn-danger" type="submit">Si, Eliminar</button>
+	<!--url para cancelar y que nos lleve nuevamente al listado de las mascotas-->
+	<a class = "btn btn-default" href="{% url 'mascota:mascota_listar' %}">Cancelar</a>
+</form>
+
+{% endblock %}

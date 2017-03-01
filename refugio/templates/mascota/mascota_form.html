@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<form method="POST">
+	<!--EL TOKEN CSRF DEBE INCLUIRSE EN TODOS LOS FORMULARIOS, PARA QUE NO NOS MARQUE UN ERROR -->
+	{% csrf_token %}
+	<!--Meteremos en una variable el form que estamos recibiendo en el contexto-->
+	{{form.as_p}} <!--al hacer form.as_p le estamos indicando que lo pinte como parrafo, como si fuera una etiqueta <p></p>-->
+	<!--Finalmente generamos el boton de submit para enviar los datos-->
+	<button type="submit">Guardar</button>
+</form>
+
+{% endblock %}
